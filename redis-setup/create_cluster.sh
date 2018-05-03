@@ -32,10 +32,6 @@ source ./settings.sh
 echo ""
 echo $info_color"INFO"$no_color": Starting Redis Enterprise Pack containers on a single network"
 
-echo ""
-echo $info_color"INFO"$no_color": Creating network "$rp_network_name
-docker network create --ip-range 10.0.0.0/16 --subnet=10.0.0.0/16 $rp_network_name
-
 #create cluster
 for ((i = 0; i<$rp_total_nodes; i++))
 do
@@ -98,7 +94,7 @@ do
 done
 
 #populate sample data
-sleep 30
+sleep 90
 for ((i = 0; i<$rp_total_dbs; i++))
 do
     echo $info_color"INFO"$no_color": Populating database "$rp_database_name_prefix$i" on port "$(($rp_database_port_prefix+$i))
@@ -113,4 +109,4 @@ docker ps -a | grep $rp_container_name_prefix
 echo ""
 echo $info_color"INFO"$no_color": NEXT STEPS:"
 echo $info_color"INFO"$no_color": Visit: https://localhost:8443 to view the database and stats."
-echo $info_color"INFO"$no_color": Run: docker exec -it "$rp_container_name_prefix"1 bash to connect to first node"
+echo $info_color"INFO"$no_color": Run: docker exec -it "$rp_container_name_prefix"0 bash to connect to first node"
