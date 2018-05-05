@@ -2,6 +2,5 @@
 
 #redis cleanup
 ./redis-setup/delete_cluster.sh
-
-#network clearup
-./network-setup/delete_network.sh
+./sqlserver-setup/delete_cluster.sh
+./couchbase-setup/delete_cluster.sh

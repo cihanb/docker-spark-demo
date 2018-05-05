@@ -28,5 +28,5 @@
 #read settings
 source ./settings.sh
 
-docker run -d --name cb0 -p 8091-8094:8091-8094 -p 11210:11210 couchbase
+docker run  --name ss0 -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=123' -p 1433:1433 -d microsoft/mssql-server-linux:2017-latest
 

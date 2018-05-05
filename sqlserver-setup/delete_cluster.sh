@@ -28,5 +28,5 @@
 #read settings
 source ./settings.sh
 
-docker run -d --name cb0 -p 8091-8094:8091-8094 -p 11210:11210 couchbase
+docker rm -f ss0
 
